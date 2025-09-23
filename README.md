@@ -49,18 +49,6 @@
   g++ "Minggu 1/1-1 Char.cpp" -std=c++17 -O2 -o "Minggu 1/1-1 Char" && ./"Minggu 1/1-1 Char"
   ```
 
-## Struktur Materi (Ringkas)
-- `Minggu 1/`
-  - `1-1 Char.cpp`: Dasar tipe `char`
-  - `1-2 Array.cpp`: Dasar array C-style
-  - `1-3 String.cpp`: Dasar `std::string`
-  - `1-4 Using Namespace Std.cpp`: Penjelasan `using namespace std;`
-- `Minggu 2/`
-  - `2-1 Vector.cpp`: Dasar `std::vector` (tanpa <algorithm>)
-- `Materi Kelas/`
-  - `1-1 Tipe Data Dasar.cpp`: Tipe dasar, `sizeof`, casting
-  - (Opsional) `1-2 Array Dasar.cpp`, `1-3 String Dasar.cpp` jika tersedia
-
 ## Info
 - Gunakan `-std=c++17` (atau lebih baru) untuk konsistensi compile.
 - Jika file atau folder mengandung spasi, gunakan tanda kutip seperti contoh di atas.
