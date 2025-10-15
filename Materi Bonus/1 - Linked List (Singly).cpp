@@ -109,6 +109,7 @@ public:
     }
 
     // Mencari nilai. Mengembalikan indeks pertama jika ketemu, atau -1 jika tidak ada
+    // Ditandai const karena tidak mengubah state list (aman dipanggil pada objek const)
     int find_first(int value) const {
         Node* cur = head;
         int idx = 0;
@@ -132,10 +133,11 @@ public:
         length = 0;
     }
 
-    // Mengembalikan jumlah elemen
+    // size() tidak mengubah state, maka dibuat const agar bisa dipanggil pada objek const
     int size() const { return length; }
 
-    // Menampilkan isi list dalam satu baris
+    // print() tidak memodifikasi list: tandai const untuk menjamin tidak ada perubahan state
+    // Parameter prefix bertipe const char* karena hanya dibaca, bukan diubah
     void print(const char* prefix = "List: ") const {
         cout << prefix;
         Node* cur = head;
