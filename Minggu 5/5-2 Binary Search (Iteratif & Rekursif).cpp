@@ -68,12 +68,12 @@ int main() {
     vector<int> data = {1, 2, 2, 2, 3, 5, 7, 9}; // TERURUT
 
     int target = 2;
-    cout << "Iteratif idx: " << binarySearchIteratif(data, target) << '\n';
-    cout << "Rekursif idx: " << binarySearchRekursif(data, target) << '\n';
-    cout << "First idx: " << binarySearchFirst(data, target) << '\n';
-    cout << "Last idx: " << binarySearchLast(data, target) << '\n';
+    cout << "Iteratif index angka " << target << ": " << binarySearchIteratif(data, target) << '\n';
+    cout << "Rekursif index angka " << target << ": " << binarySearchRekursif(data, target) << '\n';
+    cout << "First index angka " << target << ": " << binarySearchFirst(data, target) << '\n';
+    cout << "Last index angka " << target << ": " << binarySearchLast(data, target) << '\n';
 
-    cout << "Tidak ditemukan (4): " << binarySearchIteratif(data, 4) << '\n';
+    cout << "Tidak ditemukan angka 4: " << binarySearchIteratif(data, 4) << '\n';
     return 0;
 }
 
