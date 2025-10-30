@@ -8,11 +8,23 @@ using namespace std;
 class CharStack {
 private:
     vector<char> data;
+
 public:
-    void push(char c) { data.push_back(c); }
-    void pop() { if (!data.empty()) data.pop_back(); }
-    char top() const { return data.back(); }
-    bool empty() const { return data.empty(); }
+    void push(char c) { 
+        data.push_back(c); 
+    }
+
+    void pop() { 
+        if (!data.empty()) data.pop_back(); 
+    }
+
+    char top() const { 
+        return data.back(); 
+    }
+
+    bool empty() const { 
+        return data.empty(); 
+    }
 };
 
 // Cek keseimbangan tanda kurung (), {}, []
@@ -32,8 +44,12 @@ bool isMatching(const string& s) {
         if (c == '(' || c == '{' || c == '[') st.push(c);
         else if (c == ')' || c == '}' || c == ']') {
             if (st.empty()) return false;
-            char t = st.top(); st.pop();
-            if ((c == ')' && t != '(') || (c == '}' && t != '{') || (c == ']' && t != '[')) return false;
+            char t = st.top(); 
+            st.pop();
+
+            if ((c == ')' && t != '(') || (c == '}' && t != '{') || (c == ']' && t != '[')) {
+                return false;
+            }
         }
     }
     return st.empty();
@@ -45,7 +61,12 @@ string reverseString(const string& s) {
     for (char c : s) st.push(c);
     string out;
     out.reserve(s.size()); //optimisasi agar tidak terjadi realokasi memori
-    while (!st.empty()) { out.push_back(st.top()); st.pop(); }
+
+    while (!st.empty()) { 
+        out.push_back(st.top()); 
+        st.pop(); 
+    }
+
     return out;
 }
 
@@ -58,8 +79,6 @@ int main() {
 
     string s = "stack";
     cout << "reverse '" << s << "' -> '" << reverseString(s) << "'\n";
+
     return 0;
 }
-
-
-

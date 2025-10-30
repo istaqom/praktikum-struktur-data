@@ -6,7 +6,9 @@ using namespace std;
 // Queue sederhana berbasis vector + head index
 class Queue {
 private:
-    vector<int> data; int head = 0;
+    vector<int> data; 
+    int head = 0;
+
     // Meng-"compact" buffer ketika head sudah terlalu maju.
     // Tujuan:
     // - Mengembalikan elemen aktif ke awal vector agar tidak terus membuang memori di depan.
@@ -17,26 +19,52 @@ private:
     void compactIfNeeded() {
         if (head > 0 && head * 2 >= static_cast<int>(data.size())) {
             vector<int> tmp(data.begin() + head, data.end());
-            data.swap(tmp); head = 0;
+            data.swap(tmp); 
+            head = 0;
         }
     }
+
 public:
-    void push(int v) { data.push_back(v); }
-    void pop() { if (!empty()) { ++head; compactIfNeeded(); } }
-    int front() const { return data[head]; }
-    bool empty() const { return head >= static_cast<int>(data.size()); }
+    void push(int v) { 
+        data.push_back(v); 
+    }
+
+    void pop() { 
+        if (!empty()) { 
+            ++head; 
+            compactIfNeeded(); 
+        } 
+    }
+
+    int front() const { 
+        return data[head]; 
+    }
+
+    bool empty() const { 
+        return head >= static_cast<int>(data.size()); 
+    }
 };
 
 // BFS pada graf tidak berbobot, adjacency list
 void bfs(const vector<vector<int>>& g, int start) {
     int n = static_cast<int>(g.size());
     vector<int> vis(n, 0); // contoh: n = 5 maka vis = {0, 0, 0, 0, 0}, fungsinya untuk menandai node yang sudah dikunjungi
-    Queue q; q.push(start); vis[start] = 1;
+    Queue q; 
+    q.push(start); 
+    vis[start] = 1;
+    
     cout << "BFS order: ";
+
     while (!q.empty()) {
-        int u = q.front(); q.pop();
+        int u = q.front(); 
+        q.pop();
         cout << u << ' ';
-        for (int v : g[u]) if (!vis[v]) { vis[v] = 1; q.push(v); }
+        for (int v : g[u]) {
+            if (!vis[v]) { 
+                vis[v] = 1; 
+                q.push(v); 
+            }
+        }
     }
     cout << '\n';
 }
@@ -54,9 +82,7 @@ int main() {
     };
 
     bfs(g, 0);
-    bfs(g, 5);
+    bfs(g, 3);
+
     return 0;
 }
-
-
-

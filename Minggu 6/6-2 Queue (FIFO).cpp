@@ -24,28 +24,48 @@ private:
             head = 0;
         }
     }
+
 public:
     void push(int value) {
         data.push_back(value);
     }
+
     void pop() {
-        if (!empty()) { ++head; compactIfNeeded(); }
+        if (!empty()) { 
+            ++head; 
+            compactIfNeeded(); 
+        }
     }
-    int front() const { return data[head]; }
-    bool empty() const { return head >= static_cast<int>(data.size()); }
-    int size() const { return static_cast<int>(data.size()) - head; }
+
+    int front() const { 
+        return data[head]; 
+    }
+
+    bool empty() const { 
+        return head >= static_cast<int>(data.size()); 
+    }
+
+    int size() const { 
+        return static_cast<int>(data.size()) - head; 
+    }
 };
 
 int main() {
     cout << "=== Queue (FIFO) ===\n";
     Queue q;
-    q.push(1); q.push(2); q.push(3);
+
+    q.push(10); 
+    q.push(20); 
+    q.push(30);
+
     cout << "size: " << q.size() << " front: " << q.front() << '\n';
     q.pop();
     cout << "after pop -> size: " << q.size() << " front: " << q.front() << '\n';
-    while (!q.empty()) { cout << q.front() << (q.size()>1?' ':'\n'); q.pop(); }
+
+    while (!q.empty()) { 
+        cout << q.front() << (q.size()>1?' ':'\n'); 
+        q.pop(); 
+    }
+
     return 0;
 }
-
-
-
